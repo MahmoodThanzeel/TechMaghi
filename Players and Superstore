@@ -1,0 +1,40 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import ipywidgets as ip
+
+
+
+d = pd.read_csv(r"C:\Users\MAHMOOD THANZEEL\Downloads\player.csv")
+print(d)
+print(d['matches'].max())
+print(d['matches'] == 220)
+print()
+print(d[d['matches'] == 220])
+print()
+print(d[(d['100s']>2) & (d['innings']>150)])
+print()
+print()
+print(d[(d['100s']>2) & (d['innings']>150)]['name'])
+
+
+s = pd.read_csv(r"C:\Users\MAHMOOD THANZEEL\Downloads\SampleSuperstore.csv")
+print(s)
+print(s['State'].value_counts())
+print(s['State'].value_counts().index)
+print(s['State'].value_counts().values)
+a = s['State'].value_counts().values
+
+
+plt.figure(figsize=(13, 7))
+plt.bar('State', 'Sales',data=s)
+plt.xticks(rotation=90)
+plt.show()
+
+no = s['State'].value_counts().values
+plt.pie(no, colors=['red', 'blue'],labels=a)
+plt.show()
+
+
+ip.IntSlider(value=250,min=100,max=500)
+
